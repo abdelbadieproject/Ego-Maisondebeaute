@@ -1386,9 +1386,17 @@ color:#111 !important;
 @media(max-width:850px){
 
 header{
-background:rgba(210,190,160,.58);
-backdrop-filter:blur(14px);
--webkit-backdrop-filter:blur(14px);
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:1000;
+
+  background:#d7c3aa;
+
+  border-bottom:1px solid rgba(255,255,255,.25);
+
+  transition:.4s ease;
 }
 
 .hero{
