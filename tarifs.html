@@ -259,9 +259,24 @@ overflow-x:hidden;
 
 body{
 background-size:190% auto !important;
-background-position:center top !important;
+background-position: 5% center !important;
 }
 
+}
+  html,body{
+min-height:100%;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+
+z-index:-2;
+}
+
+body{
+background:none !important;
 }
 </style>
 </head>
