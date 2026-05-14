@@ -3,66 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tarifs - Ego Maison de Beauté</title>
+<title>Tarifs - Muse Beauty Concept</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 body{
   font-family:'Poppins',sans-serif;
-  background:url("tarifsimage2.png") center/cover fixed no-repeat;
   color:#1d1b1a;
+  background:url("tarifsimage2.png") center center/cover fixed no-repeat;
   overflow-x:hidden;
 }
 
-
-
-.tarifs-page{
-  padding:70px 18px 100px;
-}
-
-.title{
-  text-align:center;
-  margin-bottom:35px;
-}
-
-.title h1{
-  font-family:'Playfair Display',serif;
-  font-size:70px;
-  font-weight:500;
-}
-
-.title p{
-  margin-top:12px;
-  color:#000000;
-}
-
 .tabs{
-  max-width:1050px;
-  margin:0 auto 45px;
-  padding:12px;
+  max-width:950px;
+  margin:40px auto 80px;
+  padding:15px;
   display:flex;
   justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  background:rgba(255,255,255,.65);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.55);
-  border-radius:50px;
-  box-shadow:0 20px 60px rgba(0,0,0,.08);
+  gap:18px;
+  background:rgba(255,255,255,.78);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  border-radius:60px;
+  box-shadow:0 20px 55px rgba(0,0,0,.08);
 }
 
 .tab-btn{
-  border:0;
-  padding:13px 22px;
-  border-radius:40px;
+  border:none;
   background:transparent;
-  font-weight:600;
+  padding:15px 28px;
+  border-radius:40px;
+  font-weight:700;
   cursor:pointer;
-  color:#2a2522;
-  transition:.3s ease;
+  transition:.3s;
+  color:#1d1b1a;
 }
 
 .tab-btn.active,
@@ -71,98 +52,123 @@ body{
   color:white;
 }
 
-.tab-content{
-  display:none;
-  animation:fadeUp .7s ease;
+.section-title{
+  text-align:center;
+  margin-bottom:55px;
 }
 
-.tab-content.active{display:block}
-
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(35px)}
-  to{opacity:1;transform:translateY(0)}
-}
-
-.card{
-  max-width:1120px;
-  margin:auto;
-  padding:45px;
-  border-radius:34px;
-  background:rgba(255,255,255,.78);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,.55);
-  box-shadow:0 25px 80px rgba(0,0,0,.12);
-}
-
-.category{
-  margin-bottom:45px;
-}
-
-.category:last-child{margin-bottom:0}
-
-.category h2{
+.section-title h1{
   font-family:'Playfair Display',serif;
-  font-size:38px;
+  font-size:72px;
+  font-weight:500;
+  color:#1d1b1a;
+}
+
+.section-title::after{
+  content:"";
+  display:block;
+  width:80px;
+  height:2px;
+  background:#b28a68;
+  margin:18px auto 0;
+}
+
+.content{
+  padding:0 20px 120px;
+}
+
+.tarif-card{
+  max-width:1050px;
+  margin:auto;
+  padding:55px;
+  border-radius:38px;
+  background:rgba(255,255,255,.72);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.35);
+  box-shadow:0 25px 80px rgba(0,0,0,.10);
+}
+
+.tarif-card h2{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
   color:#b28a68;
-  margin-bottom:20px;
+  margin-bottom:30px;
 }
 
 .price-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:0 55px;
+  gap:0 70px;
+  margin-bottom:55px;
 }
 
 .price-line{
   display:flex;
   justify-content:space-between;
-  gap:18px;
-  padding:13px 0;
-  border-bottom:1px dotted rgba(80,65,55,.35);
-  font-size:15px;
+  gap:20px;
+  padding:17px 0;
+  border-bottom:1px solid rgba(178,138,104,.18);
 }
 
 .price-line span{
-  color:#000000;
+  color:#4d4642;
 }
 
 .price-line strong{
   white-space:nowrap;
   color:#1d1b1a;
-  font-weight:600;
+}
+.tab-content{
+  display:none;
 }
 
-.note{
-  margin-top:15px;
-  font-size:13px;
-  color:#000000;
-  font-style:italic;
+.tab-content.active{
+  display:block;
+  animation:fadeUp .8s ease;
 }
 
-@media(max-width:800px){
-  .tarifs-page{padding:45px 14px 80px}
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
 
-  .title h1{font-size:45px}
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+@media(max-width:850px){
 
   .tabs{
-    justify-content:flex-start;
-    flex-wrap:nowrap;
+    width:92%;
     overflow-x:auto;
-    border-radius:25px;
+    justify-content:flex-start;
+    margin:25px auto 55px;
   }
-
+.tabs{
+  overflow-x:auto;
+  justify-content:flex-start;
+}
   .tab-btn{
     white-space:nowrap;
-    font-size:13px;
-    padding:12px 18px;
+    padding:14px 22px;
+    font-size:14px;
   }
 
-  .card{
-    padding:28px 20px;
-    border-radius:26px;
+  .section-title h1{
+    font-size:48px;
   }
 
-  .category h2{font-size:30px}
+  .tarif-card{
+    padding:30px 22px;
+  }
+
+  .tarif-card h2{
+    font-size:34px;
+  }
 
   .price-grid{
     grid-template-columns:1fr;
@@ -170,8 +176,7 @@ body{
   }
 
   .price-line{
-    font-size:13px;
-    gap:12px;
+    font-size:14px;
   }
 }
 .back-home{
@@ -205,330 +210,234 @@ padding:12px 20px;
 font-size:14px
 }
 }
-  @media(max-width:850px){
-
-  .card{
-    width:88% !important;
-    max-width:88% !important;
-    padding:20px 16px !important;
-    border-radius:24px !important;
-  }
-
-  .category{
-    margin-bottom:26px !important;
-  }
-
-  .category h2{
-    font-size:26px !important;
-    margin-bottom:14px !important;
-  }
-
-  .price-line{
-    padding:8px 0 !important;
-    font-size:12px !important;
-    gap:8px !important;
-  }
-
-  .price-line strong{
-    font-size:12px !important;
-  }
-
-  .tabs{
-    width:88% !important;
-    padding:8px !important;
-  }
-
-  .tab-btn{
-    padding:10px 16px !important;
-    font-size:12px !important;
-  }
-}
-  body{
-font-family:'Poppins',sans-serif;
-background:url("tarifsimage2.png");
-background-size:170% auto;
-background-position:center top;
-background-repeat:no-repeat;
-background-attachment:scroll;
-background-color:#f3efeb;
-color:#1d1b1a;
-overflow-x:hidden;
-}
-
-@media(max-width:850px){
-
-body{
-background-size:190% auto !important;
-background-position: 5% center !important;
-}
-
-}
-  html,body{
-min-height:100%;
-}
-
-body::before{
-content:"";
-position:fixed;
-inset:0;
-
-z-index:-2;
-}
-
-body{
-background:none !important;
-}
 </style>
 </head>
 
 <body>
+
 <a href="index.html" class="back-home">
  Retour à l’accueil
 </a>
-<section class="tarifs-page">
 
-  <div class="title">
-    <h1>Nos Tarifs</h1>
-    <p>Des prestations pensées pour révéler votre beauté avec élégance.</p>
-  </div>
 
-  <div class="tabs">
-    <button class="tab-btn active" data-tab="cheveux">Cheveux</button>
-    <button class="tab-btn" data-tab="mains">Mains & Pieds</button>
-    <button class="tab-btn" data-tab="soins">Soins</button>
-    <button class="tab-btn" data-tab="epilation">Épilation</button>
-    <button class="tab-btn" data-tab="makeup">Make-up</button>
-  </div>
 
-  <div class="tab-content active" id="cheveux">
-    <div class="card">
+<div class="tabs">
+  <button class="tab-btn active" data-tab="cheveux">💇 Cheveux</button>
+  <button class="tab-btn" data-tab="ongles">💅 Mains & Pieds</button>
+  <button class="tab-btn" data-tab="soins">✨ Soins</button>
+  <button class="tab-btn" data-tab="epilation">🕯️ Épilation</button>
+  <button class="tab-btn" data-tab="makeup">💄 Make-up</button>
+</div>
 
-      <div class="category">
-        <h2>Coiffage</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Shampoing spécifique</span><strong>50DH</strong></div>
-            <div class="price-line"><span>Brushing cheveux courts</span><strong>70DH</strong></div>
-            <div class="price-line"><span>Brushing cheveux mi-longs à longs</span><strong>100DH</strong></div>
-            <div class="price-line"><span>Brushing wavy au fer / lisseur</span><strong>150DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Chignon / coiffure</span><strong>400DH</strong></div>
-            <div class="price-line"><span>Coupe</span><strong>300DH</strong></div>
-            <div class="price-line"><span>Coupe frange</span><strong>100DH</strong></div>
-            <div class="price-line"><span>Égalisation pointes</span><strong>200DH</strong></div>
-          </div>
-        </div>
-      </div>
+<section class="content">
 
-      <div class="category">
-        <h2>Coloration</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Coloration racines avec ammoniaque</span><strong>350DH</strong></div>
-            <div class="price-line"><span>Coloration racines sans ammoniaque</span><strong>400DH</strong></div>
-            <div class="price-line"><span>Coloration complète avec ammoniaque</span><strong>450DH</strong></div>
-            <div class="price-line"><span>Coloration complète sans ammoniaque</span><strong>500DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Mèches ou balayage</span><strong>ÀP 800DH</strong></div>
-            <div class="price-line"><span>Patine gloss</span><strong>200DH</strong></div>
-            <div class="price-line"><span>Coloration avec vos produits</span><strong>ÀP 150DH</strong></div>
-          </div>
-        </div>
-      </div>
+<div class="tab-content active" id="cheveux">
+<div class="section-title"><h1>Cheveux</h1></div>
+<div class="tarif-card">
 
-      <div class="category">
-        <h2>Soins Cheveux</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Soins express 20 min</span><strong>200DH</strong></div>
-            <div class="price-line"><span>Soins K18 technique</span><strong>400DH</strong></div>
-            <div class="price-line"><span>Soins hydratation intense caviar</span><strong>400DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Traitement collagène</span><strong>700DH</strong></div>
-            <div class="price-line"><span>Soins Oribe</span><strong>ÀP 600DH</strong></div>
-            <div class="price-line"><span>Soins Davines</span><strong>ÀP 400DH</strong></div>
-          </div>
-        </div>
-        <p class="note">Diagnostic et tarifs personnalisés en salon.</p>
-      </div>
+<h2>Coiffage</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Shampoing spécifique</span><strong>50 DH</strong></div>
+<div class="price-line"><span>Brushing cheveux courts</span><strong>70 DH</strong></div>
+<div class="price-line"><span>Brushing cheveux mi-longs à longs</span><strong>100 DH</strong></div>
+<div class="price-line"><span>Brushing wavy au fer / lisseur</span><strong>150 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Chignon / coiffure</span><strong>400 DH</strong></div>
+<div class="price-line"><span>Coupe</span><strong>300 DH</strong></div>
+<div class="price-line"><span>Coupe frange</span><strong>100 DH</strong></div>
+<div class="price-line"><span>Égalisation pointes</span><strong>200 DH</strong></div>
+</div>
+</div>
 
-      <div class="category">
-        <h2>Lissage</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Soins kératine</span><strong>ÀP 1000DH</strong></div>
-            <div class="price-line"><span>Lissage bandeau</span><strong>500DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Lissage Goldery</span><strong>ÀP 1500DH</strong></div>
-            <div class="price-line"><span>Lissage bandeau Goldery</span><strong>800DH</strong></div>
-          </div>
-        </div>
-      </div>
+<h2>Coloration</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Coloration racines avec ammoniaque</span><strong>350 DH</strong></div>
+<div class="price-line"><span>Coloration racines sans ammoniaque</span><strong>400 DH</strong></div>
+<div class="price-line"><span>Coloration complète avec ammoniaque</span><strong>450 DH</strong></div>
+<div class="price-line"><span>Coloration complète sans ammoniaque</span><strong>500 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Mèches ou balayage</span><strong>ÀP 800 DH</strong></div>
+<div class="price-line"><span>Patine gloss</span><strong>200 DH</strong></div>
+<div class="price-line"><span>Coloration avec vos produits</span><strong>ÀP 150 DH</strong></div>
+</div>
+</div>
 
-      <div class="category">
-        <h2>Extensions Capillaires</h2>
-        <p class="note">Diagnostic, méthode et tarif personnalisés en salon.</p>
-      </div>
+<h2>Soins cheveux</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Soins express 20 min</span><strong>200 DH</strong></div>
+<div class="price-line"><span>Soins K18 technique</span><strong>400 DH</strong></div>
+<div class="price-line"><span>Soins hydratation intense caviar</span><strong>400 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Traitement collagène</span><strong>700 DH</strong></div>
+<div class="price-line"><span>Soins Oribe</span><strong>ÀP 600 DH</strong></div>
+<div class="price-line"><span>Soins Davines</span><strong>ÀP 400 DH</strong></div>
+</div>
+</div>
 
-    </div>
-  </div>
+<h2>Lissage</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Soins kératine</span><strong>ÀP 1000 DH</strong></div>
+<div class="price-line"><span>Lissage bandeau</span><strong>500 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Lissage Goldery</span><strong>ÀP 1500 DH</strong></div>
+<div class="price-line"><span>Lissage bandeau Goldery</span><strong>800 DH</strong></div>
+</div>
+</div>
 
-  <div class="tab-content" id="mains">
-    <div class="card">
-      <div class="category">
-        <h2>Mains & Pieds</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Pose vernis</span><strong>70DH</strong></div>
-            <div class="price-line"><span>Pose vernis French</span><strong>100DH</strong></div>
-            <div class="price-line"><span>Pose vernis permanent</span><strong>150DH</strong></div>
-            <div class="price-line"><span>Dépose vernis permanent</span><strong>50DH</strong></div>
-            <div class="price-line"><span>Gel</span><strong>600DH</strong></div>
-            <div class="price-line"><span>Remplissage</span><strong>400DH</strong></div>
-            <div class="price-line"><span>Dépose du gel</span><strong>150DH</strong></div>
-            <div class="price-line"><span>BIAB Russian manucure</span><strong>400DH</strong></div>
-            <div class="price-line"><span>Remplissage BIAB</span><strong>300DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Dépose BIAB</span><strong>70DH</strong></div>
-            <div class="price-line"><span>Faux ongles</span><strong>200DH</strong></div>
-            <div class="price-line"><span>Manucure</span><strong>120DH</strong></div>
-            <div class="price-line"><span>Manucure spa</span><strong>200DH</strong></div>
-            <div class="price-line"><span>Manucure signature Ego</span><strong>300DH</strong></div>
-            <div class="price-line"><span>Manucure vernis permanent</span><strong>270DH</strong></div>
-            <div class="price-line"><span>Pédicure</span><strong>180DH</strong></div>
-            <div class="price-line"><span>Pédicure spa</span><strong>250DH</strong></div>
-            <div class="price-line"><span>Pédicure signature Ego</span><strong>400DH</strong></div>
-            <div class="price-line"><span>Pédicure vernis permanent</span><strong>330DH</strong></div>
-            <div class="price-line"><span>Nail art</span><strong>ÀP 10DH</strong></div>
-          </div>
-        </div>
-        <p class="note">Prix selon complexité et design — à définir avec la technicienne.</p>
-      </div>
-    </div>
-  </div>
+<h2>Extensions capillaires</h2>
+<div class="price-line"><span>Diagnostic, méthode et tarif personnalisés en salon</span><strong>Sur devis</strong></div>
 
-  <div class="tab-content" id="soins">
-    <div class="card">
+</div>
+</div>
 
-      <div class="category">
-        <h2>Soins Visage</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Hydradermie jeunesse 60 min</span><strong>650DH</strong></div>
-            <div class="price-line"><span>Hydradermie lift 60 min</span><strong>700DH</strong></div>
-            <div class="price-line"><span>Eye lift 40 min</span><strong>400DH</strong></div>
-            <div class="price-line"><span>Hydra peeling 45 min</span><strong>700DH</strong></div>
-            <div class="price-line"><span>Age summum 50 min</span><strong>800DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Lift summum 50 min</span><strong>800DH</strong></div>
-            <div class="price-line"><span>Hydra summum 45 min</span><strong>700DH</strong></div>
-            <div class="price-line"><span>Detoxygene 50 min</span><strong>600DH</strong></div>
-            <div class="price-line"><span>Equilibre pureté 40 min</span><strong>550DH</strong></div>
-            <div class="price-line"><span>Foot peeling 30 min</span><strong>350DH</strong></div>
-          </div>
-        </div>
-      </div>
+<div class="tab-content" id="ongles">
+<div class="section-title"><h1>Mains & Pieds</h1></div>
+<div class="tarif-card">
+<h2>Mains & Pieds</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Pose vernis</span><strong>70 DH</strong></div>
+<div class="price-line"><span>Pose vernis French</span><strong>100 DH</strong></div>
+<div class="price-line"><span>Pose vernis permanent</span><strong>150 DH</strong></div>
+<div class="price-line"><span>Dépose vernis permanent</span><strong>50 DH</strong></div>
+<div class="price-line"><span>Gel</span><strong>600 DH</strong></div>
+<div class="price-line"><span>Remplissage</span><strong>400 DH</strong></div>
+<div class="price-line"><span>Dépose du gel</span><strong>150 DH</strong></div>
+<div class="price-line"><span>BIAB Russian manucure</span><strong>400 DH</strong></div>
+<div class="price-line"><span>Remplissage BIAB</span><strong>300 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Dépose BIAB</span><strong>70 DH</strong></div>
+<div class="price-line"><span>Faux ongles</span><strong>200 DH</strong></div>
+<div class="price-line"><span>Manucure</span><strong>120 DH</strong></div>
+<div class="price-line"><span>Manucure spa</span><strong>200 DH</strong></div>
+<div class="price-line"><span>Manucure signature Ego</span><strong>300 DH</strong></div>
+<div class="price-line"><span>Manucure vernis permanent</span><strong>270 DH</strong></div>
+<div class="price-line"><span>Pédicure</span><strong>180 DH</strong></div>
+<div class="price-line"><span>Pédicure spa</span><strong>250 DH</strong></div>
+<div class="price-line"><span>Pédicure signature Ego</span><strong>400 DH</strong></div>
+<div class="price-line"><span>Pédicure vernis permanent</span><strong>330 DH</strong></div>
+<div class="price-line"><span>Nail art</span><strong>ÀP 10 DH</strong></div>
+</div>
+</div>
+</div>
+</div>
 
-      <div class="category">
-        <h2>Soins Corps</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Massage relaxant</span><strong>350DH</strong></div>
-            <div class="price-line"><span>Massage lymphatique</span><strong>400DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Massage amincissant</span><strong>400DH</strong></div>
-            <div class="price-line"><span>Forfait massage 10 séances + 2 offertes</span><strong>3000/4000DH</strong></div>
-          </div>
-        </div>
-      </div>
+<div class="tab-content" id="soins">
+<div class="section-title"><h1>Soins</h1></div>
+<div class="tarif-card">
 
-      <div class="category">
-        <h2>Rituels</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Hammam Ego</span><strong>300DH</strong></div>
-            <div class="price-line"><span>Hammam Royal</span><strong>500DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Hammam Royal ++</span><strong>700DH</strong></div>
-          </div>
-        </div>
-      </div>
+<h2>Soins visage</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Hydradermie jeunesse 60 min</span><strong>650 DH</strong></div>
+<div class="price-line"><span>Hydradermie lift 60 min</span><strong>700 DH</strong></div>
+<div class="price-line"><span>Eye lift 40 min</span><strong>400 DH</strong></div>
+<div class="price-line"><span>Hydra peeling 45 min</span><strong>700 DH</strong></div>
+<div class="price-line"><span>Age summum 50 min</span><strong>800 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Lift summum 50 min</span><strong>800 DH</strong></div>
+<div class="price-line"><span>Hydra summum 45 min</span><strong>700 DH</strong></div>
+<div class="price-line"><span>Detoxygène 50 min</span><strong>600 DH</strong></div>
+<div class="price-line"><span>Équilibre pureté 40 min</span><strong>550 DH</strong></div>
+<div class="price-line"><span>Foot peeling 30 min</span><strong>350 DH</strong></div>
+</div>
+</div>
 
-    </div>
-  </div>
+<h2>Soins corps</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Massage relaxant</span><strong>350 DH</strong></div>
+<div class="price-line"><span>Massage lymphatique</span><strong>400 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Massage amincissant</span><strong>400 DH</strong></div>
+<div class="price-line"><span>Forfait massage 10 séances + 2 offertes</span><strong>3000 / 4000 DH</strong></div>
+</div>
+</div>
 
-  <div class="tab-content" id="epilation">
-    <div class="card">
-      <div class="category">
-        <h2>Épilation</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Sourcils</span><strong>50DH</strong></div>
-            <div class="price-line"><span>Brow styling</span><strong>100DH</strong></div>
-            <div class="price-line"><span>Duvet</span><strong>30DH</strong></div>
-            <div class="price-line"><span>Narines</span><strong>20DH</strong></div>
-            <div class="price-line"><span>Visage</span><strong>100DH</strong></div>
-            <div class="price-line"><span>Aisselles</span><strong>70DH</strong></div>
-            <div class="price-line"><span>Bras</span><strong>100DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Avant bras</span><strong>60DH</strong></div>
-            <div class="price-line"><span>Demi jambes</span><strong>80DH</strong></div>
-            <div class="price-line"><span>Jambes</span><strong>150DH</strong></div>
-            <div class="price-line"><span>Ventre</span><strong>50DH</strong></div>
-            <div class="price-line"><span>Bas du dos</span><strong>50DH</strong></div>
-            <div class="price-line"><span>Dos</span><strong>100DH</strong></div>
-            <div class="price-line"><span>Bord de maillot</span><strong>70DH</strong></div>
-            <div class="price-line"><span>Maillot</span><strong>150DH</strong></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+<h2>Rituels</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Hammam Ego</span><strong>300 DH</strong></div>
+<div class="price-line"><span>Hammam Royal</span><strong>500 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Hammam Royal Signature</span><strong>700 DH</strong></div>
+</div>
+</div>
 
-  <div class="tab-content" id="makeup">
-    <div class="card">
-      <div class="category">
-        <h2>Make-up</h2>
-        <div class="price-grid">
-          <div>
-            <div class="price-line"><span>Maquillage jour</span><strong>ÀP 400DH</strong></div>
-            <div class="price-line"><span>Maquillage soir</span><strong>ÀP 600DH</strong></div>
-          </div>
-          <div>
-            <div class="price-line"><span>Pose de faux cils</span><strong>200DH</strong></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+
+<div class="tab-content" id="epilation">
+<div class="section-title"><h1>Épilation</h1></div>
+<div class="tarif-card">
+<h2>Épilation</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Sourcils</span><strong>50 DH</strong></div>
+<div class="price-line"><span>Brow styling</span><strong>100 DH</strong></div>
+<div class="price-line"><span>Duvet</span><strong>30 DH</strong></div>
+<div class="price-line"><span>Narines</span><strong>20 DH</strong></div>
+<div class="price-line"><span>Visage</span><strong>100 DH</strong></div>
+<div class="price-line"><span>Aisselles</span><strong>70 DH</strong></div>
+<div class="price-line"><span>Bras</span><strong>100 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Avant bras</span><strong>60 DH</strong></div>
+<div class="price-line"><span>Demi jambes</span><strong>80 DH</strong></div>
+<div class="price-line"><span>Jambes</span><strong>150 DH</strong></div>
+<div class="price-line"><span>Ventre</span><strong>50 DH</strong></div>
+<div class="price-line"><span>Bas du dos</span><strong>50 DH</strong></div>
+<div class="price-line"><span>Dos</span><strong>100 DH</strong></div>
+<div class="price-line"><span>Bord de maillot</span><strong>70 DH</strong></div>
+<div class="price-line"><span>Maillot</span><strong>150 DH</strong></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="tab-content" id="makeup">
+<div class="section-title"><h1>Make-up</h1></div>
+<div class="tarif-card">
+<h2>Make-up</h2>
+<div class="price-grid">
+<div>
+<div class="price-line"><span>Maquillage jour</span><strong>ÀP 400 DH</strong></div>
+<div class="price-line"><span>Maquillage soir</span><strong>ÀP 600 DH</strong></div>
+</div>
+<div>
+<div class="price-line"><span>Pose de faux cils</span><strong>200 DH</strong></div>
+</div>
+</div>
+</div>
+</div>
 
 </section>
 
 <script>
-const buttons = document.querySelectorAll(".tab-btn");
-const contents = document.querySelectorAll(".tab-content");
+const buttons=document.querySelectorAll(".tab-btn");
+const contents=document.querySelectorAll(".tab-content");
 
 buttons.forEach(button=>{
   button.addEventListener("click",()=>{
+    const target=button.dataset.tab;
+
     buttons.forEach(btn=>btn.classList.remove("active"));
     contents.forEach(content=>content.classList.remove("active"));
 
     button.classList.add("active");
-    document.getElementById(button.dataset.tab).classList.add("active");
-
-    window.scrollTo({
-      top: document.querySelector(".tarifs-page").offsetTop,
-      behavior: "smooth"
-    });
+    document.getElementById(target).classList.add("active");
   });
 });
 </script>
