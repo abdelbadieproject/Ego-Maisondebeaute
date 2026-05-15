@@ -1736,6 +1736,25 @@ color:white !important;
   opacity:1;
   transform:translateX(0);
 }
+    /* ANIMATION COMMENTAIRES */
+
+.review-animate{
+  opacity:0;
+  transition:1s ease;
+}
+
+.review-animate.from-left{
+  transform:translateX(-90px);
+}
+
+.review-animate.from-right{
+  transform:translateX(90px);
+}
+
+.review-animate.active{
+  opacity:1;
+  transform:translateX(0);
+}
   </style>
 </head>
 <body>
@@ -1961,19 +1980,19 @@ color:white !important;
     </div>
 
     <div class="review-grid">
-      <div class="review-card">
+      <div class="review-card review-animate from-left">
         <p>⭐⭐⭐⭐⭐</p>
         <p>“Un salon magnifique, très propre et élégant. L’accueil est chaleureux et le résultat est parfait.”</p>
         <strong>— Sara M.</strong>
       </div>
 
-      <div class="review-card">
+      <div class="review-card review-animate from-right">
         <p>⭐⭐⭐⭐⭐</p>
         <p>“J’ai adoré l’ambiance luxe et le professionnalisme. Je recommande Ego les yeux fermés.”</p>
         <strong>— Lina B.</strong>
       </div>
 
-      <div class="review-card">
+      <div class="review-card review-animate from-left">
         <p>⭐⭐⭐⭐⭐</p>
         <p>“Service rapide, équipe douce et résultat incroyable. Une vraie maison de beauté premium.”</p>
         <strong>— Imane R.</strong>
@@ -2223,12 +2242,14 @@ window.addEventListener("scroll", ()=>{
   revealOneByOne(".service-card");
   revealOneByOne(".price-card");
   revealOneByOne(".why-animate");
+  revealOneByOne(".review-animate");
 });
 
 window.addEventListener("load", ()=>{
   revealOneByOne(".service-card");
   revealOneByOne(".price-card");
   revealOneByOne(".why-animate");
+  revealOneByOne(".review-animate");
 });
 </script>
  
