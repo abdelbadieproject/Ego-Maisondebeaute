@@ -1698,6 +1698,36 @@ color:white !important;
 }
 }
 }
+    .service-card{
+  opacity:0;
+  transition:1s ease;
+}
+
+.service-card.from-left{
+  transform:translateX(-90px);
+}
+
+.service-card.from-right{
+  transform:translateX(90px);
+}
+
+.service-card.active{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.service-card img{
+  opacity:1 !important;
+  transform:none !important;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:34px;
+  max-width:980px;
+  margin:auto;
+}
   </style>
 </head>
 <body>
@@ -1745,13 +1775,51 @@ color:white !important;
 </section>
 
 <section class="container" id="services">
-  <div class="section-title reveal"><span>Nos prestations</span><h2>Services beauté</h2></div>
-  <div class="card reveal-zoom-delay">
-    <div class="card"><img class="reveal-left" src="coiffage.png"><div class="card-content"><h3>Coiffure & Brushing</h3><p>Coupes modernes, brushing glamour, coiffures élégantes pour vos journées et événements.</p></div></div>
-    <div class="card"><img class="reveal-left" src="onglerie2.png"><div class="card-content"><h3>Onglerie</h3><p>Manucure, pédicure, gel, semi-permanent et nail art chic pour des mains parfaites.</p></div></div>
-    <div class="card"><img class="reveal-left" src="soins.png"><div class="card-content"><h3>Soins corporels</h3><p>Nettoyage profond, hydratation, éclat et soins adaptés à votre type de peau.</p></div></div>
-    <div class="card"><img class="reveal-left" src="makeup2.png"><div class="card-content"><h3>Make-up</h3><p>Maquillage naturel, soirée ou mariée pour sublimer votre visage avec élégance.</p></div></div>
-    <div class="card"><img class="reveal-left" src="spaservice.png"><div class="card-content"><h3>Massage</h3><p>Un moment de relaxation pour relâcher les tensions et retrouver votre énergie.</p></div></div>
+  <div class="section-title reveal">
+    <span>Nos prestations</span>
+    <h2>Services beauté</h2>
+  </div>
+
+  <div class="cards">
+    <div class="card service-card from-left">
+      <img src="coiffage.png">
+      <div class="card-content">
+        <h3>Coiffure & Brushing</h3>
+        <p>Coupes modernes, brushing glamour, coiffures élégantes pour vos journées et événements.</p>
+      </div>
+    </div>
+
+    <div class="card service-card from-right">
+      <img src="onglerie2.png">
+      <div class="card-content">
+        <h3>Onglerie</h3>
+        <p>Manucure, pédicure, gel, semi-permanent et nail art chic pour des mains parfaites.</p>
+      </div>
+    </div>
+
+    <div class="card service-card from-left">
+      <img src="soins.png">
+      <div class="card-content">
+        <h3>Soins corporels</h3>
+        <p>Nettoyage profond, hydratation, éclat et soins adaptés à votre type de peau.</p>
+      </div>
+    </div>
+
+    <div class="card service-card from-right">
+      <img src="makeup2.png">
+      <div class="card-content">
+        <h3>Make-up</h3>
+        <p>Maquillage naturel, soirée ou mariée pour sublimer votre visage avec élégance.</p>
+      </div>
+    </div>
+
+    <div class="card service-card from-left">
+      <img src="spaservice.png">
+      <div class="card-content">
+        <h3>Massage</h3>
+        <p>Un moment de relaxation pour relâcher les tensions et retrouver votre énergie.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2128,6 +2196,32 @@ document.querySelectorAll(".horaire-row").forEach(row=>{
     row.classList.add("active");
   }
 });
+  /* ANIMATION SERVICES UNE PAR UNE */
+
+const serviceCards = document.querySelectorAll(".service-card");
+let currentService = 0;
+
+function revealServicesOneByOne(){
+
+  if(currentService >= serviceCards.length) return;
+
+  const card = serviceCards[currentService];
+
+  const position = card.getBoundingClientRect().top;
+
+  const screen = window.innerHeight - 120;
+
+  if(position < screen){
+
+    card.classList.add("active");
+
+    currentService++;
+  }
+}
+
+window.addEventListener("scroll", revealServicesOneByOne);
+
+window.addEventListener("load", revealServicesOneByOne);
 </script>
   <script>
 window.addEventListener("scroll",()=>{
@@ -2140,5 +2234,6 @@ header.classList.remove("scrolled");
 }
 });
 </script>
+ 
 </body>
 </html>
