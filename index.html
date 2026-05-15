@@ -854,12 +854,6 @@ input[type="date"]{
   }
 }
 
-/* effet flottant luxe */
-.why-card{
-  animation:
-    cardAppear 1s ease forwards,
-    floating 5s ease-in-out infinite;
-}
 
 @keyframes floating{
   0%,100%{
@@ -1740,6 +1734,25 @@ color:white !important;
   max-width:980px;
   margin:auto;
 }
+    /* ANIMATION WHY US */
+
+.why-animate{
+  opacity:0;
+  transition:1s ease;
+}
+
+.why-animate.from-left{
+  transform:translateX(-90px);
+}
+
+.why-animate.from-right{
+  transform:translateX(90px);
+}
+
+.why-animate.active{
+  opacity:1;
+  transform:translateX(0);
+}
   </style>
 </head>
 <body>
@@ -1929,25 +1942,25 @@ color:white !important;
     </div>
 
     <div class="why-grid">
-      <div class="why-card reveal-zoom">
+      <div class="why-card why-animate from-left">
         <div class="why-icon">✦</div>
         <h3>Hygiène irréprochable</h3>
         <p>Chaque espace et chaque outil sont soigneusement préparés pour vous offrir une expérience propre, sûre et rassurante.</p>
       </div>
 
-      <div class="why-card reveal-zoom">
+      <div class="why-card why-animate from-right">
         <div class="why-icon">◆</div>
         <h3>Produits premium</h3>
         <p>Nous sélectionnons des produits de qualité pour sublimer votre beauté tout en respectant votre peau et vos cheveux.</p>
       </div>
 
-      <div class="why-card reveal-zoom">
+      <div class="why-card why-animate from-left">
         <div class="why-icon">❋</div>
         <h3>Notre accueil</h3>
         <p>Chaque cliente est écoutée, conseillée et accompagnée selon ses envies, son style et son moment beauté.</p>
       </div>
 
-      <div class="why-card reveal-zoom">
+      <div class="why-card why-animate from-right">
         <div class="why-icon">✧</div>
         <h3>Nos résultats</h3>
         <p>Nos prestations sont pensées pour révéler une beauté raffinée, naturelle et parfaitement adaptée à votre personnalité.</p>
@@ -2271,6 +2284,32 @@ function revealPricesOneByOne(){
 window.addEventListener("scroll", revealPricesOneByOne);
 
 window.addEventListener("load", revealPricesOneByOne);
+    /* ANIMATION WHY */
+
+const whyCards = document.querySelectorAll(".why-animate");
+let currentWhy = 0;
+
+function revealWhyOneByOne(){
+
+  if(currentWhy >= whyCards.length) return;
+
+  const card = whyCards[currentWhy];
+
+  const position = card.getBoundingClientRect().top;
+
+  const screen = window.innerHeight - 120;
+
+  if(position < screen){
+
+    card.classList.add("active");
+
+    currentWhy++;
+  }
+}
+
+window.addEventListener("scroll", revealWhyOneByOne);
+
+window.addEventListener("load", revealWhyOneByOne);
 </script>
  
 </body>
