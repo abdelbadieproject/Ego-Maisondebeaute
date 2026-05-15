@@ -2221,95 +2221,32 @@ document.querySelectorAll(".horaire-row").forEach(row=>{
     row.classList.add("active");
   }
 });
-  /* ANIMATION SERVICES UNE PAR UNE */
+ /* ANIMATION AU SCROLL UNE PAR UNE */
 
-const serviceCards = document.querySelectorAll(".service-card");
-let currentService = 0;
+function revealOneByOne(selector){
+  const elements = document.querySelectorAll(selector);
 
-function revealServicesOneByOne(){
+  elements.forEach(el=>{
+    const position = el.getBoundingClientRect().top;
+    const screen = window.innerHeight - 120;
 
-  if(currentService >= serviceCards.length) return;
-
-  const card = serviceCards[currentService];
-
-  const position = card.getBoundingClientRect().top;
-
-  const screen = window.innerHeight - 120;
-
-  if(position < screen){
-
-    card.classList.add("active");
-
-    currentService++;
-  }
+    if(position < screen){
+      el.classList.add("active");
+    }
+  });
 }
 
-window.addEventListener("scroll", revealServicesOneByOne);
-
-window.addEventListener("load", revealServicesOneByOne);
-</script>
-  <script>
-window.addEventListener("scroll",()=>{
-const header=document.querySelector("header");
-
-if(window.scrollY>40){
-header.classList.add("scrolled");
-}else{
-header.classList.remove("scrolled");
-}
+window.addEventListener("scroll", ()=>{
+  revealOneByOne(".service-card");
+  revealOneByOne(".price-card");
+  revealOneByOne(".why-animate");
 });
-    /* ANIMATION TARIFS */
 
-const priceCards = document.querySelectorAll(".price-card");
-let currentPrice = 0;
-
-function revealPricesOneByOne(){
-
-  if(currentPrice >= priceCards.length) return;
-
-  const card = priceCards[currentPrice];
-
-  const position = card.getBoundingClientRect().top;
-
-  const screen = window.innerHeight - 120;
-
-  if(position < screen){
-
-    card.classList.add("active");
-
-    currentPrice++;
-  }
-}
-
-window.addEventListener("scroll", revealPricesOneByOne);
-
-window.addEventListener("load", revealPricesOneByOne);
-    /* ANIMATION WHY */
-
-const whyCards = document.querySelectorAll(".why-animate");
-let currentWhy = 0;
-
-function revealWhyOneByOne(){
-
-  if(currentWhy >= whyCards.length) return;
-
-  const card = whyCards[currentWhy];
-
-  const position = card.getBoundingClientRect().top;
-
-  const screen = window.innerHeight - 120;
-
-  if(position < screen){
-
-    card.classList.add("active");
-
-    currentWhy++;
-  }
-}
-
-window.addEventListener("scroll", revealWhyOneByOne);
-
-window.addEventListener("load", revealWhyOneByOne);
+window.addEventListener("load", ()=>{
+  revealOneByOne(".service-card");
+  revealOneByOne(".price-card");
+  revealOneByOne(".why-animate");
+});
 </script>
  
 </body>
