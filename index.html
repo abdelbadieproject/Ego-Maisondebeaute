@@ -1002,8 +1002,20 @@ input[type="date"]{
 /* ANIMATION CARTES TARIFS */
 .price-card{
   opacity:0;
-  transform:translateY(50px) scale(.96);
-  animation:revealCard .9s ease forwards;
+  transition:1s ease;
+}
+
+.price-card.from-left{
+  transform:translateX(-90px);
+}
+
+.price-card.from-right{
+  transform:translateX(90px);
+}
+
+.price-card.active{
+  opacity:1;
+  transform:translateX(0);
 }
 
 .price-card:nth-child(1){animation-delay:.1s;}
@@ -1831,7 +1843,7 @@ color:white !important;
     </div>
 
     <div class="price-grid">
-      <div class="price-card">
+      <div class="price-card from-left">
         <h3>Cheveux</h3>
         <div class="price-row"><span>Brushing</span><strong>dès 70 DH</strong></div>
         <div class="price-row"><span>Coupe</span><strong>300 DH</strong></div>
@@ -1839,7 +1851,7 @@ color:white !important;
         <div class="price-row"><span>Lissage</span><strong>dès 500 DH</strong></div>
       </div>
 
-      <div class="price-card">
+      <div class="price-card from-right">
         <h3>Mains & Pieds</h3>
         <div class="price-row"><span>Pose vernis</span><strong>dès 70 DH</strong></div>
         <div class="price-row"><span>Gel</span><strong>600 DH</strong></div>
@@ -1847,7 +1859,7 @@ color:white !important;
         <div class="price-row"><span>Pédicure</span><strong>dès 180 DH</strong></div>
       </div>
 
-      <div class="price-card">
+      <div class="price-card from-left">
         <h3>Soins & Beauté</h3>
         <div class="price-row"><span>Soin visage</span><strong>dès 650 DH</strong></div>
         <div class="price-row"><span>Massage</span><strong>dès 350 DH</strong></div>
@@ -2233,6 +2245,32 @@ header.classList.add("scrolled");
 header.classList.remove("scrolled");
 }
 });
+    /* ANIMATION TARIFS */
+
+const priceCards = document.querySelectorAll(".price-card");
+let currentPrice = 0;
+
+function revealPricesOneByOne(){
+
+  if(currentPrice >= priceCards.length) return;
+
+  const card = priceCards[currentPrice];
+
+  const position = card.getBoundingClientRect().top;
+
+  const screen = window.innerHeight - 120;
+
+  if(position < screen){
+
+    card.classList.add("active");
+
+    currentPrice++;
+  }
+}
+
+window.addEventListener("scroll", revealPricesOneByOne);
+
+window.addEventListener("load", revealPricesOneByOne);
 </script>
  
 </body>
